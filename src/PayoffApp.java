@@ -7,8 +7,12 @@ public class PayoffApp {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        List<Double> aprs = new ArrayList<>();
+        CreditCard discover = new CreditCard(20.5, 146.4, "Discover");
 
+        List<Double> aprs = new ArrayList<>();
+        List<CreditCard> cards = new ArrayList<>();
+
+        System.out.println(discover.getName());
         while(scan.hasNextLine()) {
             String name = scan.nextLine();
 
@@ -17,6 +21,8 @@ public class PayoffApp {
 
             // Consume \n after balance input 
             if(scan.hasNextLine()) scan.nextLine();
+
+            cards.add(new CreditCard(apr, balance, name));
             aprs.add(apr);
 
             String aprString = String.format("%.2f%%", apr);
